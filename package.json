@@ -1,0 +1,30 @@
+{
+  "name": "observable",
+  "version": "0.0.1",
+  "description": "Simple ES3+ event bus.",
+  "main": "observable.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mikol/observable.git"
+  },
+  "keywords": [
+    "event bus",
+    "event monitoring",
+    "EventEmitter",
+    "Observable"
+  ],
+  "author": "",
+  "license": "CC-BY-SA-4.0",
+  "bugs": {
+    "url": "https://github.com/mikol/observable/issues"
+  },
+  "homepage": "https://github.com/mikol/observable#readme",
+  "dependencies": {
+    "is": "git+https://github.com/mikol/is.git",
+    "slice": "git+https://github.com/mikol/slice.git",
+    "type": "git+https://github.com/mikol/type.git"
+  }
+}
