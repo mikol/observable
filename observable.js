@@ -84,19 +84,6 @@ function (instance, is, slice, type) {
     },
 
     /**
-     * Returns a copy of the functions registered to handle event `type`.
-     *
-     * @param {string} type - The event of interest.
-     *
-     * @return {Array<function>} A copy of the functions to call when event
-     *     `type` occurs.
-     */
-    copy: function (type) {
-      var observers = this.observers[type];
-      return observers ? observers.slice() : [];
-    },
-
-    /**
      * Returns the number of observers registered to handle event `type`.
      *
      * @param {string} type - The event of interest.
@@ -180,6 +167,24 @@ function (instance, is, slice, type) {
       }
 
       return this;
+    },
+
+    /**
+     * Returns a copy of the functions registered to handle event `type`.
+     *
+     * @param {string} type - The event of interest.
+     * @param {number} [begin=0] - Zero-based index at which to begin copy.
+     * @param {number} [end] - Zero-based (up to, but not including) index at
+     *     which to end copy.
+     *
+     * @return {Array<function>} A copy of the functions to call when event
+     *     `type` occurs.
+     *
+     * @see [Array.prototype.slice()](https://goo.gl/3Kyhoo)
+     */
+    slice: function (type, begin, end) {
+      var observers = this.observers[type];
+      return observers ? observers.slice(begin, end) : [];
     },
 
     /**
