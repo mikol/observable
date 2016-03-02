@@ -9,6 +9,13 @@
 function (instance, is, slice, type) {
 /* jshint ignore:end   *//* jscs:enable  */
   'use strict';
+
+  /**
+   * Observable instances maintain a list of registered observer functions,
+   * each of which will be called when the corresponding event type occurs.
+   *
+   * @constructor Observable
+   */
   function Observable() {
     /**
      * A map of each registered event type and its corresponding event handlers.
@@ -213,12 +220,7 @@ function (instance, is, slice, type) {
     },
   });
 
-  /**
-   * Observable instances maintain a list of registered observer functions,
-   * each of which will be called when the corresponding event type occurs.
-   *
-   * @constructor Observable
-   */
+  /** @private */
   var constructor = definition.identity;
 
   /** @private */
