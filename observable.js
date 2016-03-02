@@ -196,8 +196,8 @@ function (instance, is, slice, type) {
 
     /**
      * Dispatches event `type`, invoking each registered observer function with
-     * this observable as the `this` object and any supplied values in
-     * `var_args` as arguments.
+     * this observable as the `this` object and any supplied values in `argv` as
+     * arguments.
      *
      * @param {string} type - The event to dispatch.
      * @param {...*} argv - The values to supply as arguments to each observer
@@ -209,10 +209,11 @@ function (instance, is, slice, type) {
       var observers = this.observers;
 
       if (observers && observers.hasOwnProperty(type)) {
+        var argv = slice(arguments, 1);
         observers = observers[type].slice();
 
         for (var x = 0, nx = observers.length; x < nx; ++x) {
-          observers[x].apply(this, slice(arguments, 1));
+          observers[x].apply(this, argv);
         }
       }
 
