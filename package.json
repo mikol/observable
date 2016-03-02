@@ -4,7 +4,7 @@
   "description": "Simple ES3+ event bus.",
   "main": "observable.js",
   "scripts": {
-    "test": "node_modules/criteria/bin/criteria test"
+    "test": "./node_modules/criteria/bin/criteria test"
   },
   "repository": {
     "type": "git",
