@@ -4,7 +4,7 @@
 
 'use strict';
 
-var id = '';
+var id = 'Observable';
 var dependencies = ['instance', 'is', 'slice', 'type'];
 
 function factory(instance, is, slice, type) {
