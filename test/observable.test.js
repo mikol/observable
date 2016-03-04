@@ -3,7 +3,7 @@
 require('criteria'); /* globals scope, test */
 
 const is = require('is');
-const Observable = require('observable');
+const Observable = require('../observable');
 
 scope('Observable Tests',
 function () {

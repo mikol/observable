@@ -155,12 +155,12 @@ function factory(instance, is, slice, type) {
      * @return {Observable} This observable instance for chaining.
      */
     off: function (type, fn) {
-      if (is.nix(type)) {
+      if (is.nil(type)) {
         this.observers = {};
       } else {
         var observers = this.observers;
-        if (observers && observers.hasOwnProperty(type)) {
-          if (is.nix(fn)) {
+        if (is.def(observers) && observers.hasOwnProperty(type)) {
+          if (is.nil(fn)) {
             observers[type] = [];
           } else {
             var index = observers[type].indexOf(fn);
@@ -206,7 +206,7 @@ function factory(instance, is, slice, type) {
     trigger: function (type) {
       var observers = this.observers;
 
-      if (observers && observers.hasOwnProperty(type)) {
+      if (is.def(observers) && observers.hasOwnProperty(type)) {
         var argv = slice(arguments, 1);
         observers = observers[type].slice();
 
