@@ -35,7 +35,7 @@ function () {
     });
   });
 
-  scope('Observers can be registered and unregistered events can be triggered.',
+  scope('Observers can be registered and unregistered, events triggered.',
   function () {
     scope.before(function () {
       this.onFoo = function onFoo(self) {

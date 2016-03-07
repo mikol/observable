@@ -27,7 +27,7 @@ function factory(instance, is, slice, type) {
   }
 
   /** @private */
-  var definition = type(Observable)['implements']({
+  var definition = type(Observable).$implements({
     /**
      * Adds `iface`’s enumerable properties to `Observable.prototype`.
      *
@@ -39,12 +39,12 @@ function factory(instance, is, slice, type) {
      *     `Observable.prototype.trigger()`.
      */
     provide: {
-      static: function (iface, aliases) {
+      $static: function (iface, aliases) {
         if (this.provided.indexOf(iface) === -1) {
           if (is.object(aliases)) {
             for (var name in iface) {
               if (name in aliases) {
-                definition['implements'](name, prototype[aliases[name]]);
+                definition.$implements(name, prototype[aliases[name]]);
               } else if (is.function(prototype[name])) {
                 // XXX: Allow `iface` to specify an implementation for `name`.
                 // The original implementation will be called after the
@@ -57,7 +57,7 @@ function factory(instance, is, slice, type) {
                 var override = iface[name];
 
                 /* jshint -W083 */
-                definition['implements'](name, {
+                definition.$implements(name, {
                   value: function () {
                     var argv = slice(arguments);
                     override.apply(this, argv);
@@ -67,11 +67,11 @@ function factory(instance, is, slice, type) {
                 });
                 /* jshint +W083 */
               } else {
-                definition['implements'](name, iface[name]);
+                definition.$implements(name, iface[name]);
               }
             }
           } else {
-            definition['implements'](iface);
+            definition.$implements(iface);
           }
 
           this.provided.push(iface);
@@ -85,7 +85,7 @@ function factory(instance, is, slice, type) {
      * @private
      */
     provided: {
-      static: []
+      $static: []
     },
 
     /**
